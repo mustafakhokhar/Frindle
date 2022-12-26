@@ -595,13 +595,13 @@ class _MyHomePageState extends State<PaperTemplate> {
                       : SizedBox(height: 0),
                 ),
                 StreamBuilder(
-                    stream: Firestore.instance
+                    stream: FirebaseFirestore.instance
                         .collection('Level')
-                        .document(argData[0])
+                        .doc(argData[0])
                         .collection('Boards')
-                        .document(argData[1])
+                        .doc(argData[1])
                         .collection('Subjects')
-                        .document(argData[2])
+                        .doc(argData[2])
                         .collection('Papers')
                         .orderBy('year', descending: true)
                         // .startAt(['2019'])

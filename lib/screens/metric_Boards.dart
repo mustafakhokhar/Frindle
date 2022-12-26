@@ -125,15 +125,15 @@ class _MyHomePageState extends State<EducationBoardMetric> {
                     )),
                 StreamBuilder(
                     stream: (search == null)
-                        ? Firestore.instance
+                        ? FirebaseFirestore.instance
                             .collection('Level')
-                            .document(widget.boardType)
+                            .doc(widget.boardType)
                             .collection('Boards')
                             .orderBy('name')
                             .snapshots()
-                        : Firestore.instance
+                        : FirebaseFirestore.instance
                             .collection('Level')
-                            .document(widget.boardType)
+                            .doc(widget.boardType)
                             .collection('Boards')
                             .orderBy('name')
                             .where("searchkeywords", arrayContains: search)

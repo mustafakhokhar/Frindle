@@ -137,19 +137,19 @@ class _SubjectState extends State<SubjectMetric> {
                     )),
                 StreamBuilder(
                     stream: (search == null)
-                        ? Firestore.instance
+                        ? FirebaseFirestore.instance
                             .collection('Level')
-                            .document(argData[0])
+                            .doc(argData[0])
                             .collection('Boards')
-                            .document(argData[1])
+                            .doc(argData[1])
                             .collection('Subjects')
                             .orderBy('subject_name')
                             .snapshots()
-                        : Firestore.instance
+                        : FirebaseFirestore.instance
                             .collection('Level')
-                            .document(argData[0])
+                            .doc(argData[0])
                             .collection('Boards')
-                            .document(argData[1])
+                            .doc(argData[1])
                             .collection('Subjects')
                             .orderBy('display_name')
                             .where("searchkeywords", arrayContains: search)

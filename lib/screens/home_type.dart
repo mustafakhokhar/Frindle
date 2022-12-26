@@ -124,7 +124,7 @@ class HomeScreen extends StatelessWidget {
         automaticallyImplyLeading: false,
       ),
       endDrawer: StreamBuilder(
-        stream: Firestore.instance
+        stream: FirebaseFirestore.instance
             .collection('Drawer_info')
             .orderBy('text', descending: true)
             .snapshots(),
@@ -184,7 +184,9 @@ class HomeScreen extends StatelessWidget {
                 height: SizeConfig.blockSizeVertical * 1.25),
             Expanded(
                 child: StreamBuilder(
-                    stream: Firestore.instance.collection('Level').snapshots(),
+                    stream: FirebaseFirestore.instance
+                        .collection('Level')
+                        .snapshots(),
                     builder: (context, snapshot) {
                       if (!snapshot.hasData) return const Text('Loading');
                       return StaggeredGridView.countBuilder(
