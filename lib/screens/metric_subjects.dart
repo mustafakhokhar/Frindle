@@ -160,13 +160,13 @@ class _SubjectState extends State<SubjectMetric> {
                         child: ListView.builder(
                             shrinkWrap: true,
                             itemCount:
-                                snapshot.data.documents.length, //items.length,
+                                snapshot.data.docs.length, //items.length,
                             itemBuilder: (context, index) {
-                              allSubjectsFromFirebase.add(snapshot
-                                  .data.documents[index]['subject_name']);
+                              allSubjectsFromFirebase.add(
+                                  snapshot.data.docs[index]['subject_name']);
                               // print(allSubjectsFromFirebase.toList());
                               return _buildListItem(
-                                  context, snapshot.data.documents[index]);
+                                  context, snapshot.data.docs[index]);
                             }),
                       );
                     })

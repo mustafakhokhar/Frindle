@@ -30,6 +30,13 @@
             {
               "client_id": "1048498162308-st1nnd5pjaave3h327iu0qt2ca1kpbcu.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "1048498162308-kq30sq5apdh3k08ns0mokmvd6i5kd2cn.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.projectMustafaNito"
+              }
             }
           ]
         }

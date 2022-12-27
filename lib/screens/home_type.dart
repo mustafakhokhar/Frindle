@@ -150,9 +150,9 @@ class HomeScreen extends StatelessWidget {
               Flexible(
                   child: ListView.builder(
                       padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
-                      itemCount: snapshot.data.documents.length, //items.length,
-                      itemBuilder: (context, index) => _buildDrawer(
-                          context, snapshot.data.documents[index]))),
+                      itemCount: snapshot.data.docs.length, //items.length,
+                      itemBuilder: (context, index) =>
+                          _buildDrawer(context, snapshot.data.docs[index]))),
               Container(
                 // width: MediaQuery.of(context).size.width,
                 // height: 50,
@@ -176,31 +176,29 @@ class HomeScreen extends StatelessWidget {
       ),
       body: Padding(
         padding: EdgeInsets.only(left: 20, top: 0, right: 20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            SizedBox(
-                // height: 10),
-                height: SizeConfig.blockSizeVertical * 1.25),
-            Expanded(
-                child: StreamBuilder(
-                    stream: FirebaseFirestore.instance
-                        .collection('Level')
-                        .snapshots(),
-                    builder: (context, snapshot) {
-                      if (!snapshot.hasData) return const Text('Loading');
-                      return StaggeredGridView.countBuilder(
-                        padding: EdgeInsets.all(0),
-                        crossAxisCount: 2,
-                        itemCount: snapshot.data.documents.length,
-                        crossAxisSpacing: 5,
-                        mainAxisSpacing: 20,
-                        itemBuilder: (context, index) => _buildListItem(
-                            context, snapshot.data.documents[index]),
-                        staggeredTileBuilder: (index) => StaggeredTile.fit(1),
-                      );
-                    })),
-          ],
+        child: Container(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              SizedBox(
+                  // height: 10),
+                  height: SizeConfig.blockSizeVertical * 1.25),
+              StreamBuilder(
+                  stream: FirebaseFirestore.instance
+                      .collection('Level')
+                      .snapshots(),
+                  builder: (context, snapshot) {
+                    if (!snapshot.hasData) return const Text('Loading');
+                    return Expanded(
+                      child: ListView.builder(
+                          shrinkWrap: true,
+                          itemCount: snapshot.data.docs.length, //items.length,
+                          itemBuilder: (context, index) => _buildListItem(
+                              context, snapshot.data.docs[index])),
+                    );
+                  }),
+            ],
+          ),
         ),
       ),
     );

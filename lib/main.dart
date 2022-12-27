@@ -1,8 +1,13 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:project_mustafa_nito/router/router.dart' as router;
+import 'firebase_options.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(MyApp());
 }
 // Press F5 to run this code in Debug - PixelPhone conditions True
@@ -21,5 +26,6 @@ class MyApp extends StatelessWidget {
                 .generateRoute, //navigator.pushNamed(contxt,Router.<anything>)
           );
         });
+    // );
   }
 }

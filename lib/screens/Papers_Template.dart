@@ -620,9 +620,9 @@ class _MyHomePageState extends State<PaperTemplate> {
                         child: ListView.builder(
                             shrinkWrap: true,
                             itemCount:
-                                snapshot.data.documents.length, //items.length,
+                                snapshot.data.docs.length, //items.length,
                             itemBuilder: (context, index) => _buildListItem(
-                                context, snapshot.data.documents[index])),
+                                context, snapshot.data.docs[index])),
                       );
                     }),
               ],
