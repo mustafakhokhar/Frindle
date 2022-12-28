@@ -26,8 +26,8 @@ class _MyHomePageState extends State<PaperTemplate> {
   String type;
   bool ismetric;
   bool _showClearButton = false;
-  bool _showRangeToClearButton = false;
-  bool _showRangeFromClearButton = false;
+  // bool _showRangeToClearButton = false;
+  // bool _showRangeFromClearButton = false;
 //
   int selectedValue;
   bool isYearSelected;
@@ -44,13 +44,13 @@ class _MyHomePageState extends State<PaperTemplate> {
     });
     _rangeToTextEditingController.addListener(() {
       setState(() {
-        _showRangeToClearButton = _rangeToTextEditingController.text.length > 0;
+        // _showRangeToClearButton = _rangeToTextEditingController.text.length > 0;
       });
     });
     _rangeFromTextEditingController.addListener(() {
       setState(() {
-        _showRangeFromClearButton =
-            _rangeFromTextEditingController.text.length > 0;
+        // _showRangeFromClearButton =
+        //     _rangeFromTextEditingController.text.length > 0;
       });
     });
     isYearSelected = true;
@@ -170,20 +170,23 @@ class _MyHomePageState extends State<PaperTemplate> {
                 )),
             child: ListTile(
               dense: true,
-              isThreeLine: (document['sub'] == null) ? false : true,
+              isThreeLine:
+                  document.data().toString().contains('sub') ? true : false,
               selected: true,
-              title: Text(document['name'],
+              title: Text(document.get('name'),
                   style: TextStyle(
                       fontSize: SizeConfig.safeBlockHorizontal * 4,
                       color: Colors.white)),
-              subtitle: (document['sub'] == null)
-                  ? null
-                  : Text(document['sub'],
+              subtitle: document.data().toString().contains('sub')
+                  ? Text(document.get('sub'),
                       style: TextStyle(
                           fontSize: SizeConfig.safeBlockHorizontal * 2.9,
-                          color: Colors.white)),
+                          color: Colors.white))
+                  : null,
               trailing: Text(
-                document['year'],
+                document.data().toString().contains('year')
+                    ? document.get('year')
+                    : '',
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: SizeConfig.safeBlockHorizontal * 4,
