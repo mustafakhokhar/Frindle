@@ -77,13 +77,17 @@ class HomeScreen extends StatelessWidget {
                           color: Colors.blue[900],
                           fontWeight: FontWeight.w500)),
                   onTap: () {
-                    if (document['index'] == 1) {
-                      // Navigator.pushNamed(context, router.Router.info_page,
-                      //     arguments:
-                      //         (document['text'] + "," + document['body1']));
-                    } else {
-                      _launchURL(document['email']);
-                    }
+                    document['index'] == 1
+                        ? Navigator.pushNamed(context, router.Router.info_page,
+                            arguments:
+                                (document['text'] + "," + document['body1']))
+                        : _launchURL(document.get('email'));
+
+                    // if (document['index'] == 1) {
+                    //   }
+                    // else {
+                    //   _launchURL(document.get('email'));
+                    // }
 
                     // Navigator.pop(context);
                   },
@@ -141,7 +145,7 @@ class HomeScreen extends StatelessWidget {
                 backgroundColor: Colors.white,
                 automaticallyImplyLeading: false,
                 title: Text(
-                  'Nito Papers',
+                  'Frindle',
                   style: TextStyle(color: Colors.black),
                 ),
               ),
@@ -157,14 +161,25 @@ class HomeScreen extends StatelessWidget {
                 height: SizeConfig.blockSizeVertical * 7.25,
                 padding: EdgeInsets.all(0),
                 child: Center(
-                    child: Text(
-                  'by Vertex',
-                  style: TextStyle(
-                      color: Colors.white,
-                      // fontSize: 22,
-                      fontSize: SizeConfig.safeBlockHorizontal * 5.35,
-                      fontWeight: FontWeight.w400,
-                      letterSpacing: 1),
+                    child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Icon(
+                        Icons.rocket_launch_outlined,
+                        color: Colors.white,
+                      ),
+                    ),
+                    Text(
+                      'mustafakhokhar',
+                      style: TextStyle(
+                          color: Colors.white,
+                          // fontSize: 22,
+                          fontSize: SizeConfig.safeBlockHorizontal * 5.35,
+                          fontWeight: FontWeight.w400,
+                          letterSpacing: 1),
+                    ),
+                  ],
                 )),
                 decoration: BoxDecoration(color: Color(0xff141e30)),
               ),

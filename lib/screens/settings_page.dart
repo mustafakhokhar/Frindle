@@ -65,7 +65,7 @@ class _SettingsPageState extends State<SettingsPage> {
                         child: Column(
                           children: [
                             Text(
-                              argData[1],
+                              argData[0],
                               style: TextStyle(
                                   fontSize: 20,
                                   color: Colors.blue[900],
@@ -76,7 +76,7 @@ class _SettingsPageState extends State<SettingsPage> {
                               padding: EdgeInsets.all(0),
                               child: Center(
                                   child: Text(
-                                argData[2],
+                                argData[1],
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                     color: Colors.black,
