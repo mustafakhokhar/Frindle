@@ -1,7 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:project_mustafa_nito/model/adjust_screen.dart';
 import 'package:project_mustafa_nito/router/router.dart' as router;
 import 'package:url_launcher/url_launcher.dart';
@@ -94,9 +92,9 @@ class HomeScreen extends StatelessWidget {
 // =============================================================================
 
   _launchURL(String toMailId) async {
-    var url = 'mailto:$toMailId?';
-    if (await canLaunch(url)) {
-      await launch(url);
+    var url = Uri.parse('mailto:$toMailId?');
+    if (await canLaunchUrl(url)) {
+      await launchUrl(url);
       print(url);
     } else {
       throw 'Could not launch $url';
@@ -204,10 +202,10 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Future<void> _deleteAppDir() async {
-    final appDir = await getApplicationSupportDirectory();
-    if (appDir.existsSync()) {
-      appDir.deleteSync(recursive: true);
-    }
-  }
+//   Future<void> _deleteAppDir() async {
+//     final appDir = await getApplicationSupportDirectory();
+//     if (appDir.existsSync()) {
+//       appDir.deleteSync(recursive: true);
+//     }
+//   }
 }

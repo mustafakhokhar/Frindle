@@ -17,8 +17,8 @@ class SubjectMetric extends StatefulWidget {
 class _SubjectState extends State<SubjectMetric> {
   Set<String> allSubjectsFromFirebase = Set<String>();
   Set<String> subjectsAlreadyFavourite = Set<String>();
-  List<String> tempList = List<String>();
-  var items = List<String>();
+  List<String> tempList = [];
+  var items = [];
   final TextEditingController _textEditingController = TextEditingController();
 
   @override

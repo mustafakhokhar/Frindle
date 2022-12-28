@@ -13,7 +13,7 @@ class EducationBoardMetric extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<EducationBoardMetric> {
-  var items = List<String>();
+  var items = [];
   final TextEditingController _textEditingController = TextEditingController();
 
   @override

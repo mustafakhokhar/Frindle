@@ -12,7 +12,7 @@ class FavouriteWidget extends StatefulWidget {
 class _FavouriteWidgetState extends State<FavouriteWidget> {
   bool _isFavorited = false;
   String fav;
-  List<String> favTrueList = List<String>();
+  List<String> favTrueList = [];
   //int _favoriteCount = 41;
   @override
   void initState() {
