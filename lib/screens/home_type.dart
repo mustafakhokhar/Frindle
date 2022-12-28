@@ -14,7 +14,7 @@ class HomeScreen extends StatelessWidget {
           padding: EdgeInsets.fromLTRB(20, 20, 0, 20),
           // height: 220,
           height:
-              SizeConfig.blockSizeVertical * 32, //document.isEven ? 220 : 220,
+              SizeConfig.blockSizeVertical * 10, //document.isEven ? 220 : 220,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(10.0),
@@ -98,9 +98,10 @@ class HomeScreen extends StatelessWidget {
   _launchURL(String toMailId) async {
     var url = Uri.parse('mailto:$toMailId?');
     if (await canLaunchUrl(url)) {
-      await launchUrl(url);
+      launchUrl(url);
       print(url);
     } else {
+      print(url);
       throw 'Could not launch $url';
     }
   }
@@ -114,7 +115,7 @@ class HomeScreen extends StatelessWidget {
         title: Padding(
             padding: EdgeInsets.fromLTRB(8, 10, 0, 0),
             child: Text(
-              "Select Course",
+              "Select Level",
               style: TextStyle(
                   // fontSize: 25,
                   fontSize: SizeConfig.safeBlockHorizontal * 6,
