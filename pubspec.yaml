@@ -30,7 +30,6 @@ dependencies:
   cupertino_icons: ^1.0.5
   flutter_svg: ^1.1.6
   flutter_staggered_grid_view: ^0.3.0
-  custom_splash: ^0.0.2
   flappy_search_bar: ^1.7.2
   provider: ^6.0.5
   flutter_colorpicker: ^1.0.3
@@ -52,12 +51,22 @@ dependencies:
   connectivity: ^3.0.6
   flutter_spinkit: ^5.1.0
   flutter_launcher_icons: ^0.11.0
+  flutter_native_splash: ^2.2.16
 
 
 flutter_icons:
   android: true 
   ios: true
-  image_path: "assets/logo1.png"
+  image_path: "assets/appstore.png"
+  remove_alpha_ios: true
+
+# Splash Screen Settings
+flutter_native_splash:
+  #general
+  background_image: "assets/logo.png"
+  android_12:
+    image: assets/logo.png
+    # icon_background_color: "#FFD1A6"
 
 
 dev_dependencies:

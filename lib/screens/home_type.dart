@@ -17,8 +17,8 @@ class HomeScreen extends StatelessWidget {
               SizeConfig.blockSizeVertical * 10, //document.isEven ? 220 : 220,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(10.0),
-                topRight: Radius.circular(10.0),
+                topLeft: Radius.circular(5.0),
+                topRight: Radius.circular(50.0),
                 bottomLeft: Radius.circular(5.0),
                 bottomRight: Radius.circular(50.0)),
             gradient: LinearGradient(
